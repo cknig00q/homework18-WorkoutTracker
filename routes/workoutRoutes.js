@@ -48,4 +48,14 @@ router.put('/api/workouts/:id', async (req, res) => {
         });
 })
 
+router.get('/api/workouts', async (req,res) => {
+    await Workout.find({})
+    .then((workoutObject) => {
+        res.json(workoutObject);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+})
+
 module.exports = router;
