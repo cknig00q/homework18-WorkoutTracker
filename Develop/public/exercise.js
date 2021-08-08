@@ -18,13 +18,17 @@ let workoutType = null;
 let shouldNavigateAway = false;
 
 async function initExercise() {
+  console.log('calling initExercise');
+  console.log(location.search);
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
+    console.log('could not find a workout id, creating workout');
     workout = await API.createWorkout()
     console.log(workout)
   }
   if (workout) {
+    console.log(`putting workout id into url: ${workout._id}`);
     location.search = "?id=" + workout._id;
   }
 
@@ -114,6 +118,8 @@ async function handleFormSubmit(event) {
     workoutData.duration = Number(resistanceDurationInput.value.trim());
   }
 
+  console.log('trying to add exercise');
+  console.log(workoutData);
   await API.addExercise(workoutData);
   clearInputs();
   toast.classList.add("success");

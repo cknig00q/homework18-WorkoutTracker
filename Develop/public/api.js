@@ -11,7 +11,15 @@ const API = {
     return json[json.length - 1];
   },
   async addExercise(data) {
+    console.log('trying to add exercise with data');
+    console.log(data);
+
+    console.log(location);
+    console.log(location.search);
+
     const id = location.search.split("=")[1];
+
+    console.log(`the workout id that we are adding an exercise to is ${id}`)
 
     const res = await fetch("/api/workouts/" + id, {
       method: "PUT",
