@@ -16,4 +16,36 @@ router.post('/api/workouts', async (req, res) => {
         })
 });
 
+router.put('/api/workouts/:id', async (req, res) => {
+    console.log('/api/workouts/:id, trying to get id')
+    const id = req.params.id;
+    console.log(`/api/workouts/${id}`);
+    
+    let workout;
+    try {
+        workout = await Workout.findById(id).exec();
+    } catch(err) {
+        res.status(400).json(err);
+        return;
+    }
+
+    console.log('workout before update');
+    console.log(workout);
+
+    workout.exercise.push(req.body);
+
+    console.log('workout after update');
+    console.log(workout);
+
+    Workout.updateOne({_id: id}, workout)
+        .then(workoutObject => {
+            console.log('updated');
+            console.log(workoutObject);
+            res.json(workoutObject)
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+})
+
 module.exports = router;

@@ -27,6 +27,8 @@ const API = {
       body: JSON.stringify(data)
     });
 
+    console.log('did the fetch thing');
+
     const json = await res.json();
 
     return json;
