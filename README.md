@@ -12,7 +12,10 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 * Vew the total duration of each workout from the past seven workouts on the "stats" page.
 
 ## Application Preview
-![Workout Tracker, home](assets/images/Horiseon1.JPG)
+![Workout Tracker, home](assets/images/workout-tracker-home.JPG)
+![Workout Tracker, add](assets/images/workout-tracker-add.JPG)
+![Workout Tracker, add-resistance](assets/images/workout-tracker-add-resistance.JPG)
+![Workout Tracker, add-cardio](assets/images/workout-tracker-add-cardio.JPG)
 
 
 
