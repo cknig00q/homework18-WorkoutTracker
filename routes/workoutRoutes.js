@@ -32,7 +32,7 @@ router.put('/api/workouts/:id', async (req, res) => {
     console.log('workout before update');
     console.log(workout);
 
-    workout.exercise.push(req.body);
+    workout.exercises.push(req.body);
 
     console.log('workout after update');
     console.log(workout);
